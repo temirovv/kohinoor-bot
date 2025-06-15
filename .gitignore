@@ -1,0 +1,8 @@
+utils/misc/__pycache__/
+keyboards/__pycache__/
+keyboards/inline/__pycache__/
+keyboards/default/__pycache__/
+middlewares/__pycache__/
+handlers/__pycache__/
+__pycache__
+.idea
