@@ -27,15 +27,17 @@ async def bot_start(message: types.Message):
     CHANNEL = db_admin.get_channels_as_a_list()
     ADMINS = db_admin.get_adminstrators_as_list()
 
-    
+    print(CHANNEL)
+    print(ADMINS)
     start_message = db_admin.get_message()[0]
     if start_message:
+        print(f"start message: \n{start_message}")
         text = await text_to_html(start_message)
         text = urllib.parse.unquote(start_message)
         await message.answer(text=text, parse_mode=types.ParseMode.HTML)
     telegram_id = message.from_user.id
     channels_format = str()
-
+    print(f"telegram_id: {telegram_id}")
     channels_format += "❗️Botdan toʻliq foydalanish uchun bizning Telegram sahifalarimizga obuna boʻling:\n"
     for channel in CHANNEL:
         chat = await bot.get_chat(channel)
