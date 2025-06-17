@@ -96,7 +96,10 @@ class Admin:
         sql = '''
         SELECT konkurs_count FROM konkurs where message_id=1
         '''
-        return self.execute(sql, fetchone=True)[0]
+        try:
+            return self.execute(sql, fetchone=True)[0]
+        except TypeError:
+            return 0
 
     def add_message(self, text, status=False):
         sql = '''
